@@ -9,15 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PresentationFilm" />
         <activity android:name=".Films">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Resultats" />
+        <activity android:name=".PresentationFilm" android:exported="true"/>
+        <activity android:name=".Resultats" android:exported="true"/>
     </application>
 
 </manifest>
