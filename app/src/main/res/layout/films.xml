@@ -9,13 +9,13 @@
     <TextView
         android:id="@+id/nombre"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
         android:text="Nombre"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genre" />
+        app:layout_constraintTop_toTopOf="@+id/number" />
 
     <TextView
         android:id="@+id/titreFilms"
@@ -32,51 +32,50 @@
 
     <EditText
         android:id="@+id/recherche"
-        android:layout_width="0dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="11dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/titreFilms" />
 
     <TextView
         android:id="@+id/genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
         android:text="Genre"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerGenre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toTopOf="@+id/spinnerGenre" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="89dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="89dp"
         android:text="Date"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recherche" />
+        app:layout_constraintTop_toBottomOf="@+id/titreFilms" />
 
     <Spinner
         android:id="@+id/spinnerGenre"
         android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="41dp"
+        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nombre"
+        app:layout_constraintEnd_toEndOf="@+id/number"
         app:layout_constraintStart_toEndOf="@+id/genre"
         app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
@@ -84,26 +83,10 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:text="2006"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerGenre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/date"
-        app:layout_constraintTop_toBottomOf="@+id/recherche" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="285dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nombre"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGenre" />
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerGenre"
+        app:layout_constraintTop_toTopOf="@+id/date" />
 
     <ImageView
         android:id="@+id/searchImage"
@@ -111,8 +94,44 @@
         android:layout_height="41dp"
         android:layout_marginBottom="18dp"
         android:layout_marginEnd="18dp"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@android:drawable/ic_menu_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/number"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="222dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nombre" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/number"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:text="Inclure films pour adulte"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number" />
 
 </android.support.constraint.ConstraintLayout>
