@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -53,7 +54,6 @@ public class Films extends AppCompatActivity {
         genre = findViewById(R.id.spinnerGenre);
         number = findViewById(R.id.number);
         searchImage = findViewById(R.id.searchImage);
-        hey = findViewById(R.id.textView4);
 
         Ion.with(getApplicationContext())
                 .load("https://api.themoviedb.org/3/genre/movie/list?api_key=47429c75658c20baa526d62ef06a9d92")
@@ -65,11 +65,28 @@ public class Films extends AppCompatActivity {
                         Gson gson = new Gson();
                         JsonArray json = result.getAsJsonArray("genres");
                         Genre[] genres = gson.fromJson(json,Genre[].class);
+                        final ArrayList<String> genres2 = new ArrayList<String>();
+                        genres2.add("");
+                        for (Genre g:genres) {
+                            genres2.add(g.name);
+                        }
 
                         Spinner spinGenre = findViewById(R.id.spinnerGenre);
-                        ArrayAdapter<Genre> genreUniqueArrayAdapter = new ArrayAdapter<Genre>(getApplicationContext(), android.R.layout.simple_spinner_item, genres);
+                        ArrayAdapter<String> genreUniqueArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, genres2);
                         genreUniqueArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinGenre.setAdapter(genreUniqueArrayAdapter);
+                        AdapterView.OnItemSelectedListener click = new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                Toast.makeText(getApplicationContext(),genres2.get(position),Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        };
+                        spinGenre.setOnItemSelectedListener(click);
                     }
                 });
 
@@ -78,7 +95,6 @@ public class Films extends AppCompatActivity {
 
             public void onClick(View v) {
                 EditText date = findViewById(R.id.textViewDate);
-                Toast.makeText(getApplicationContext(),"Vous avez cliqué sur l'image",Toast.LENGTH_LONG).show();
                 Ion.with(getApplicationContext())
                         .load("https://api.themoviedb.org/3/search/movie?api_key=47429c75658c20baa526d62ef06a9d92&language=fr&query="+ nomFilm.getText() +"&page=1&include_adult=false&year="+date.getText())
                         .asJsonObject()
