@@ -80,7 +80,7 @@ public class Films extends AppCompatActivity {
                 EditText date = findViewById(R.id.textViewDate);
                 Toast.makeText(getApplicationContext(),"Vous avez cliqué sur l'image",Toast.LENGTH_LONG).show();
                 Ion.with(getApplicationContext())
-                        .load("https://api.themoviedb.org/3/search/movie?api_key=47429c75658c20baa526d62ef06a9d92&language=FR&query="+ nomFilm.getText() +"&page=1&include_adult=false&year="+date.getText())
+                        .load("https://api.themoviedb.org/3/search/movie?api_key=47429c75658c20baa526d62ef06a9d92&language=fr&query="+ nomFilm.getText() +"&page=1&include_adult=false&year="+date.getText())
                         .asJsonObject()
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override

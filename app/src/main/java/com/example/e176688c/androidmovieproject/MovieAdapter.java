@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class MovieAdapter extends ArrayAdapter<FilmData> {
         FilmData currentMovie = moviesList.get(position);
 
         ImageView image = (ImageView)listItem.findViewById(R.id.imageView_poster);
-        //image.setImageResource(currentMovie.getPoster_path());
+        Picasso.get().load("https://image.tmdb.org/t/p/w500"+currentMovie.getPoster_path()).into(image);
 
         TextView name = (TextView) listItem.findViewById(R.id.textView_name);
         name.setText(currentMovie.getTitle());
