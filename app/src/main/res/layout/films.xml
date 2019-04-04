@@ -79,11 +79,12 @@
         app:layout_constraintStart_toEndOf="@+id/genre"
         app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2006"
+        android:hint="@string/app_name"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/date"
         app:layout_constraintEnd_toEndOf="@+id/spinnerGenre"
         app:layout_constraintTop_toTopOf="@+id/date" />

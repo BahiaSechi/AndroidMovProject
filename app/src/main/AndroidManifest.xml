@@ -14,11 +14,16 @@
         <activity android:name=".Films">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PresentationFilm" android:exported="true"/>
-        <activity android:name=".Resultats" android:exported="true"/>
+        <activity
+            android:name=".PresentationFilm"
+            android:exported="true" />
+        <activity
+            android:name=".Resultats"
+            android:exported="true" />
     </application>
 
 </manifest>
