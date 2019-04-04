@@ -37,7 +37,7 @@ public class MovieAdapter extends ArrayAdapter<FilmData> {
         FilmData currentMovie = moviesList.get(position);
 
         ImageView image = (ImageView)listItem.findViewById(R.id.imageView_poster);
-        //image.setImageResource(currentMovie.getmImageDrawable());
+        //image.setImageResource(currentMovie.getPoster_path());
 
         TextView name = (TextView) listItem.findViewById(R.id.textView_name);
         name.setText(currentMovie.getTitle());

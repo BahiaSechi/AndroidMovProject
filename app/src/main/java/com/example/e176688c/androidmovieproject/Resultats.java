@@ -1,10 +1,14 @@
 package com.example.e176688c.androidmovieproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -31,7 +35,7 @@ public class Resultats extends AppCompatActivity {
         android.support.constraint.ConstraintLayout container= findViewById(R.id.container);
         listView = findViewById(R.id.listResults);
 
-        Gson gson = new Gson();
+        final Gson gson = new Gson();
         String extras = getIntent().getStringExtra("json");
         System.out.println(extras);
         FilmData[] filmData = gson.fromJson(extras, FilmData[].class);
@@ -39,10 +43,20 @@ public class Resultats extends AppCompatActivity {
 
         Type listType = new TypeToken<ArrayList<FilmData>>() {}.getType();
 
-        ArrayList<FilmData> yourList = new Gson().fromJson(extras, listType);
+        final ArrayList<FilmData> yourList = new Gson().fromJson(extras, listType);
         System.out.println(yourList);
         MovieAdapter filmDataArrayAdapter = new MovieAdapter(this, yourList);
         listView.setAdapter(filmDataArrayAdapter);
+        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Resultats.this, PresentationFilm.class);
+                String s = gson.toJson(yourList.get(position));
+                intent.putExtra("film",s);
+                startActivity(intent);
+            }
+        };
+        listView.setOnItemClickListener(onItemClickListener);
 
         /*final String search = getIntent().getStringExtra("search");
         final String date = getIntent().getStringExtra("date");
@@ -61,5 +75,4 @@ public class Resultats extends AppCompatActivity {
                     }
                 });*/
     }
-
-    }
+}
