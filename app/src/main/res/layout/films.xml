@@ -83,7 +83,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/app_name"
+        android:hint="@string/ann_e"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/date"
         app:layout_constraintEnd_toEndOf="@+id/spinnerGenre"
@@ -114,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nombre" />
 
-    <Switch
+    <CheckBox
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

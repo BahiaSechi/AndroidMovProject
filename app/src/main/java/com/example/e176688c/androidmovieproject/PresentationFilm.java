@@ -2,7 +2,9 @@ package com.example.e176688c.androidmovieproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -27,5 +29,7 @@ public class PresentationFilm extends AppCompatActivity {
         resume.setText(filmData.getOverview());
         img = findViewById(R.id.imageView);
         Picasso.get().load("https://image.tmdb.org/t/p/w500"+filmData.getPoster_path()).into(img);
+        RatingBar viewById = findViewById(R.id.ratingBar);
+        viewById.setRating(filmData.getVote_average()/2);
     }
 }

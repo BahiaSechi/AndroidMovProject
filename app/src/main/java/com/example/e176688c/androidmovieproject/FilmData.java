@@ -6,9 +6,9 @@ public class FilmData {
     private int vote_count;
     private int id;
     private boolean video;
-    private double vote_average;
+    private float vote_average;
     private String title;
-    private double popularity;
+    private float popularity;
     private String poster_path;
     private String original_language;
     private String original_title;
@@ -30,7 +30,7 @@ public class FilmData {
         return video;
     }
 
-    public double getVote_average() {
+    public float getVote_average() {
         return vote_average;
     }
 
@@ -38,7 +38,7 @@ public class FilmData {
         return title;
     }
 
-    public double getPopularity() {
+    public float getPopularity() {
         return popularity;
     }
 

@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,7 +74,7 @@ public class Films extends AppCompatActivity {
                         }
 
                         Spinner spinGenre = findViewById(R.id.spinnerGenre);
-                        ArrayAdapter<String> genreUniqueArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, genres2);
+                        ArrayAdapter<String> genreUniqueArrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, genres2);
                         genreUniqueArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinGenre.setAdapter(genreUniqueArrayAdapter);
                         AdapterView.OnItemSelectedListener click = new AdapterView.OnItemSelectedListener() {
@@ -94,9 +96,10 @@ public class Films extends AppCompatActivity {
 
 
             public void onClick(View v) {
+                CheckBox adult = findViewById(R.id.switch1);
                 EditText date = findViewById(R.id.textViewDate);
                 Ion.with(getApplicationContext())
-                        .load("https://api.themoviedb.org/3/search/movie?api_key=47429c75658c20baa526d62ef06a9d92&language=fr&query="+ nomFilm.getText() +"&page=1&include_adult=false&year="+date.getText())
+                        .load("https://api.themoviedb.org/3/search/movie?api_key=47429c75658c20baa526d62ef06a9d92&language=fr&query="+ nomFilm.getText() +"&page=1&include_adult="+ adult.isChecked() +"&year="+date.getText())
                         .asJsonObject()
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
